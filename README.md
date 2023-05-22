@@ -36,3 +36,5 @@ This is a simple Django application with Django Rest Framework and Django OAuth 
 The application is pre-loaded with a superuser. The username and password for this user are set via the `DJANGO_SUPERUSER_USERNAME` and `DJANGO_SUPERUSER_PASSWORD` environment variables in the `.env` file. You can use this user to interact with the Django admin interface.
 
 ## Note
+
+The postman API collection can be found in `miniAspireAPI.postman_collection.json` file in the root directory
