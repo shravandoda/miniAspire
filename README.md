@@ -29,7 +29,7 @@ This is a simple Django application with Django Rest Framework and Django OAuth 
     ```
    This will start the Django application on port 8000. 
 
-6. Navigate to `http://localhost:8000` in your web browser to interact with the application.
+6. Navigate to `http://localhost:8000/admin` in your web browser to interact with the application.
 
 ## Admin User
 
