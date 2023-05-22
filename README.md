@@ -35,8 +35,4 @@ This is a simple Django application with Django Rest Framework and Django OAuth 
 
 The application is pre-loaded with a superuser. The username and password for this user are set via the `DJANGO_SUPERUSER_USERNAME` and `DJANGO_SUPERUSER_PASSWORD` environment variables in the `.env` file. You can use this user to interact with the Django admin interface.
 
-Remember, this setup is for development purposes only. The username and password of the superuser should not be exposed in a production environment.
-
 ## Note
-
-Please note that this application uses SQLite for database needs. While SQLite is convenient for development and testing, it is not recommended for production. Please consider using a more robust database system for production use.
