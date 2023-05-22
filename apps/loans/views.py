@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 
 # App
 from apps.loans.models import Loan, Repayment
-from apps.loans.permissions import IsSuperUserOrReadOnly
+from apps.loans.permissions import IsSuperUserOrReadOnly, NonSuperuserPermission
 from apps.loans.serializers import (
     LoanApproveSerializer,
     LoanCreateSerializer,
@@ -17,7 +17,7 @@ from apps.loans.serializers import (
 class LoanListCreateView(generics.ListCreateAPIView):
     queryset = Loan.objects.all()
     serializer_class = LoanDetailsSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, NonSuperuserPermission]
 
     def get_queryset(self):
         return self.queryset.filter(user=self.request.user)

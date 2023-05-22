@@ -22,6 +22,14 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ("id", "username", "password", "first_name", "last_name", "email")
+        extra_kwargs = {
+            "id": {"read_only": True},
+        }
+
+    def validate_username(self, value):
+        if User.objects.filter(username=value).exists():
+            raise serializers.ValidationError("Username is already taken.")
+        return value
 
     def create(self, validated_data):
         password = validated_data.pop("password", None)
@@ -54,7 +62,7 @@ class UserLoginSerializer(serializers.Serializer):
         application = Application.objects.first()
 
         # Create a new token for this user
-        token_expiration = timezone.now() + timedelta(hours=1)
+        token_expiration = timezone.now() + timedelta(hours=12)
         access_token = AccessToken.objects.create(
             user=user,
             application=application,
